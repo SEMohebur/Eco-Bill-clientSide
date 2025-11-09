@@ -47,7 +47,7 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -57,7 +57,6 @@ const Login = () => {
           timer: 1500,
         });
 
-        console.log("paisi", res);
         naviaget("/");
       })
       .catch((err) =>
