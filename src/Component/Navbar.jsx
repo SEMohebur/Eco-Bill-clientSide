@@ -20,7 +20,7 @@ const Navbar = () => {
       });
     });
   };
-  console.log(userInfo);
+  // console.log(userInfo);
 
   return (
     <nav className=" p-4 border-b border-gray-200">

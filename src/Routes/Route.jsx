@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyPayBils from "../Pages/MyPayBils";
 import Bills from "../Pages/Bills";
 import ContactUs from "../Pages/ContactUs";
+import BillDetails from "../Pages/BillDetails";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +25,21 @@ export const router = createBrowserRouter([
       { path: "/contact", element: <ContactUs></ContactUs> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
-      { path: "/bills", element: <Bills></Bills> },
+      {
+        path: "/bills",
+        element: <Bills></Bills>,
+        loader: () => fetch("http://localhost:3000/bills"),
+      },
+      {
+        path: "/billDetails/:id",
+        element: (
+          <PrivateRoute>
+            <BillDetails></BillDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/bills/${params.id}`),
+      },
 
       {
         path: "/myPayBils",
