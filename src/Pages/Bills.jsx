@@ -28,6 +28,10 @@ const Bills = () => {
     }
   };
 
+  if (!filterBill) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className=" bg-base-300">
       {" "}
@@ -45,13 +49,16 @@ const Bills = () => {
             id="myDropdown"
             value={category}
             onChange={handleCategoryChange}
-            className=" border-2  border-none bg-white py-1  rounded-2xl  "
+            className=" border-2  border-none bg-white py-1  rounded-2xl text-center "
           >
             <option value="">All</option>
             <option value="Electricity">Electricity</option>
             <option value="Gas">Gas</option>
             <option value="Water">Water</option>
-            <option value="Internet">Internet</option>
+            <option value="Telecommunication">Telecommunication</option>
+            <option value="Rent">Rent</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Groceries">Groceries</option>
           </select>
         </div>
 

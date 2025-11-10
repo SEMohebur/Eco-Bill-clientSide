@@ -33,7 +33,7 @@ const BillDetails = () => {
   };
 
   // modal form handle
-  const handlePaymentInfo = (e) => {
+  const handlePaymentInfoPost = (e) => {
     e.preventDefault();
     const formData = {
       email: e.target.email.value,
@@ -42,12 +42,23 @@ const BillDetails = () => {
       userName: e.target.userName.value,
       address: e.target.address.value,
       phone: e.target.phone.value,
-      date: e.target.date.value,
+      date: new Date(),
       additionalInfo: e.target.additionalInfo.value,
     };
-    console.log(formData);
+    // modalbtn close
     document.getElementById("my_modal_5").close();
     e.target.reset();
+    // formData post
+    fetch(`http://localhost:3000/my-pay-bill`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -115,7 +126,7 @@ const BillDetails = () => {
           <h3 className="font-bold text-lg text-center">Payment Information</h3>
 
           <div className="modal-action  flex justify-center ">
-            <form onSubmit={handlePaymentInfo}>
+            <form onSubmit={handlePaymentInfoPost}>
               <div className=" space-y-2">
                 <div>
                   <label className=" label">Email</label>
