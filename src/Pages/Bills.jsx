@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import BillCard from "../Component/BillCard";
 
 const Bills = () => {
   const bills = useLoaderData();
+
+  const [filterBill, setFilterBill] = useState(bills);
+
+  const [category, setCategory] = useState("");
+
+  // filtering
+  const handleFilter = (select) => {
+    fetch(`http://localhost:3000/bill-filtering?category=${select}`)
+      .then((res) => res.json())
+      .then((data) => setFilterBill(data))
+      .catch((err) => console.log(err.message));
+  };
+
+  // input value get and stor useState / fetch function call
+  const handleCategoryChange = (e) => {
+    const select = e.target.value;
+    setCategory(select);
+    if (select) {
+      handleFilter(select);
+    } else {
+      setFilterBill(bills);
+    }
+  };
 
   return (
     <div className=" bg-base-300">
@@ -14,22 +37,26 @@ const Bills = () => {
         <div className=" flex justify-between my-4">
           <div>
             <span>Total Bills:</span>
-            <span className=" text-green-700"> {bills.length}</span>
+            <span className=" text-green-700"> {filterBill.length}</span>
           </div>
+
           <select
             name="myDropdown"
             id="myDropdown"
-            className=" border-2 border-blue-400 rounded-2xl p-1 "
+            value={category}
+            onChange={handleCategoryChange}
+            className=" border-2  border-none bg-white py-1  rounded-2xl  "
           >
-            <option value="">Category</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="">All</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Gas">Gas</option>
+            <option value="Water">Water</option>
+            <option value="Internet">Internet</option>
           </select>
         </div>
 
         <div className=" grid md:grid-cols-3 grid-cols-1  gap-3">
-          {bills.map((bill, index) => {
+          {filterBill.map((bill, index) => {
             return <BillCard key={index} bill={bill}></BillCard>;
           })}
         </div>
