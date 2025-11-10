@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { IoIosWater } from "react-icons/io";
@@ -6,8 +6,11 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdDescription } from "react-icons/md";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdDateRange } from "react-icons/md";
+import { AuthContext } from "../Provider/AuthContext";
 
 const BillDetails = () => {
+  const { userInfo } = use(AuthContext);
+
   const bill = useLoaderData();
   const { amount, category, date, description, image, location, title, _id } =
     bill.result;
@@ -23,6 +26,29 @@ const BillDetails = () => {
     const currentMonth = today.getMonth() + 1;
     setBilingDate(billYear == currentYear && billMonth == currentMonth);
   }, [date]);
+
+  // pay bill button open modal
+  const handlePayBill = () => {
+    document.getElementById("my_modal_5").showModal();
+  };
+
+  // modal form handle
+  const handlePaymentInfo = (e) => {
+    e.preventDefault();
+    const formData = {
+      email: e.target.email.value,
+      bill_id: e.target.billId.value,
+      amount: e.target.amount.value,
+      userName: e.target.userName.value,
+      address: e.target.address.value,
+      phone: e.target.phone.value,
+      date: e.target.date.value,
+      additionalInfo: e.target.additionalInfo.value,
+    };
+    console.log(formData);
+    document.getElementById("my_modal_5").close();
+    e.target.reset();
+  };
 
   return (
     <div className=" bg-base-300">
@@ -72,12 +98,115 @@ const BillDetails = () => {
                 <></>
               )}
             </div>
-            <button disabled={!bilingDate} className=" btn btn-primary">
+            <button
+              onClick={handlePayBill}
+              disabled={!bilingDate}
+              className=" btn btn-primary"
+            >
               Pay Bill
             </button>
           </div>
         </div>
       </div>
+      {/* modal  */}
+
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg text-center">Payment Information</h3>
+
+          <div className="modal-action  flex justify-center ">
+            <form onSubmit={handlePaymentInfo}>
+              <div className=" space-y-2">
+                <div>
+                  <label className=" label">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    className=" input"
+                    defaultValue={userInfo?.email}
+                    readOnly
+                  />
+                </div>
+                <div>
+                  <label className=" label">Bill Id</label>
+                  <input
+                    type="text"
+                    name="billId"
+                    placeholder="Id"
+                    className=" input"
+                    defaultValue={_id}
+                    readOnly
+                  />
+                </div>
+                <div>
+                  <label className=" label">Amount</label>
+                  <input
+                    type="text"
+                    name="amount"
+                    placeholder="amount"
+                    className=" input"
+                    defaultValue={amount}
+                    readOnly
+                  />
+                </div>
+                <div>
+                  <label className=" label">User Name</label>
+                  <input
+                    type="text"
+                    name="userName"
+                    placeholder="name"
+                    className=" input"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className=" label">Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="address"
+                    className=" input"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className=" label">Phone</label>
+                  <input
+                    type="number"
+                    name="phone"
+                    placeholder="number"
+                    className=" input"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className=" label">Date</label>
+                  <input
+                    type="text"
+                    name="date"
+                    placeholder="date"
+                    className=" input"
+                    defaultValue={date}
+                    readOnly
+                  />
+                </div>
+                <div>
+                  <label className=" label">Additional info</label>
+                  <textarea
+                    name="additionalInfo"
+                    placeholder="Enter any additional info (optional)"
+                    className="textarea textarea-bordered w-full"
+                  />
+                </div>
+              </div>
+
+              <button className="btn my-2 w-full btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      {/* modal  */}
     </div>
   );
 };

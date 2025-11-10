@@ -17,7 +17,11 @@ export const router = createBrowserRouter([
     Component: Root,
 
     children: [
-      { index: true, element: <Home></Home> },
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/latest-bills"),
+      },
       {
         path: "/about",
         element: <About></About>,
