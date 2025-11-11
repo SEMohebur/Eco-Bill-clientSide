@@ -7,6 +7,7 @@ import { MdDescription } from "react-icons/md";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdDateRange } from "react-icons/md";
 import { AuthContext } from "../Provider/AuthContext";
+import Swal from "sweetalert2";
 
 const BillDetails = () => {
   const { userInfo } = use(AuthContext);
@@ -16,12 +17,13 @@ const BillDetails = () => {
     bill.result;
 
   const [bilingDate, setBilingDate] = useState(false);
+  const today = new Date();
+  const currentDate = today.toISOString().split("T")[0];
 
   useEffect(() => {
     const billYear = parseInt(date.split("-")[0]);
     const billMonth = parseInt(date.split("-")[1]);
 
-    const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth() + 1;
     setBilingDate(billYear == currentYear && billMonth == currentMonth);
@@ -42,7 +44,7 @@ const BillDetails = () => {
       userName: e.target.userName.value,
       address: e.target.address.value,
       phone: e.target.phone.value,
-      date: new Date(),
+      date: currentDate,
       additionalInfo: e.target.additionalInfo.value,
     };
     // modalbtn close
@@ -57,8 +59,24 @@ const BillDetails = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Payment information recorded successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) =>
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
   };
 
   return (
@@ -198,7 +216,7 @@ const BillDetails = () => {
                     name="date"
                     placeholder="date"
                     className=" input"
-                    defaultValue={date}
+                    defaultValue={currentDate}
                     readOnly
                   />
                 </div>

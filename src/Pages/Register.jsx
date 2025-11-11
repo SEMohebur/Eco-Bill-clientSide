@@ -45,7 +45,7 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-            navigate("/login");
+            navigate("/");
           })
           .catch((err) =>
             Swal.fire({
