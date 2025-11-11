@@ -19,11 +19,13 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   //register
   const register = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //login
   const login = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -34,11 +36,13 @@ const AuthProvider = ({ children }) => {
 
   //logout
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   //google signin
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 

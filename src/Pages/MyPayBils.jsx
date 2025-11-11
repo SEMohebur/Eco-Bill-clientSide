@@ -49,12 +49,20 @@ const MyPayBils = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          document.getElementById("my_modal_5").close();
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Bill updated successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
           window.location.reload();
-        }
+        });
+
+        document.getElementById("my_modal_5").close();
       })
+
       .catch((err) => console.log(err));
   };
 
@@ -62,7 +70,7 @@ const MyPayBils = () => {
   const handleDelete = (bill) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "Are you sure you want to delete this bill?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -77,11 +85,15 @@ const MyPayBils = () => {
           },
         })
           .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
+          .then(() => {
+            Swal.fire({
+              title: "delete",
+              text: "Bill deleted successfully!",
+              icon: "success",
+            }).then(() => {
               document.getElementById("my_modal_5").close();
               window.location.reload();
-            }
+            });
           })
           .catch((err) => {
             Swal.fire({
@@ -93,6 +105,9 @@ const MyPayBils = () => {
       }
     });
   };
+  useEffect(() => {
+    document.title = "My pay bill | Eco Bill";
+  }, []);
 
   return (
     <div className=" bg-base-300">

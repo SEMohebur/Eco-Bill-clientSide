@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
@@ -9,6 +9,9 @@ const Login = () => {
   const { login, loading, googleSignIn } = use(AuthContext);
   const [paswordShow, setPassworShow] = useState(false);
   const naviaget = useNavigate();
+  useEffect(() => {
+    document.title = "login | Eco Bill";
+  }, []);
 
   //login
   const handleLogin = (e) => {

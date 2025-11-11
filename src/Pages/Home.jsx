@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +16,6 @@ import { MdOutlineWatchLater } from "react-icons/md";
 
 const Home = () => {
   const data = useLoaderData();
-  console.log(data);
 
   // slider
   const bannerData = [
@@ -58,6 +57,9 @@ const Home = () => {
       icon: <MdOutlineSignalWifiStatusbarConnectedNoInternet4 />,
     },
   ];
+  useEffect(() => {
+    document.title = "Home | Eco Bill";
+  }, []);
 
   return (
     <div className=" bg-base-300">

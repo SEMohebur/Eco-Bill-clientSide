@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
@@ -37,7 +37,7 @@ const Register = () => {
       .then((res) => {
         updateUser(displayName, photoURL)
           .then(() => {
-            setUserInfo(res.user),
+            setUserInfo({ ...res.user, displayName, photoURL }),
               Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -92,6 +92,10 @@ const Register = () => {
         })
       );
   };
+
+  useEffect(() => {
+    document.title = "Register | Eco Bill";
+  }, []);
 
   if (loading) {
     return (

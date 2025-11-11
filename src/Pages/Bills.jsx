@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import BillCard from "../Component/BillCard";
 
@@ -13,7 +13,9 @@ const Bills = () => {
   const handleFilter = (select) => {
     fetch(`http://localhost:3000/bill-filtering?category=${select}`)
       .then((res) => res.json())
-      .then((data) => setFilterBill(data))
+      .then((data) => {
+        setFilterBill(data);
+      })
       .catch((err) => console.log(err.message));
   };
 
@@ -28,8 +30,18 @@ const Bills = () => {
     }
   };
 
+  useEffect(() => {
+    document.title = "Bills | Eco Bill";
+  }, []);
+
   if (!filterBill) {
-    return <p>Loading...</p>;
+    return (
+      <div className=" flex justify-center items-center">
+        <div>
+          <span className="loading loading-ring loading-xl text-center"></span>
+        </div>
+      </div>
+    );
   }
 
   return (

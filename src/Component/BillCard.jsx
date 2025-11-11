@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { FaLocationDot } from "react-icons/fa6";
 
 const BillCard = ({ bill }) => {
   // console.log(bill);
@@ -20,8 +21,11 @@ const BillCard = ({ bill }) => {
           </span>
         </p>
 
-        <p className=" text-green-600">{bill.location}</p>
-        <strong className=" text-red-500">${bill.amount}</strong>
+        <div className=" text-green-600 flex items-center gap-1">
+          <FaLocationDot className=" text-gray-700" />
+          <p>{bill.location}</p>
+        </div>
+        <strong className=" text-red-500">$ {bill.amount}</strong>
         <div className="card-actions justify-end">
           <Link to={`/billDetails/${bill._id}`} className="btn btn-primary">
             See Details

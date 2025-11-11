@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { IoIosWater } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 
 const BillDetails = () => {
   const { userInfo } = use(AuthContext);
+  const navigate = useNavigate();
 
   const bill = useLoaderData();
   const { amount, category, date, description, image, location, title, _id } =
@@ -67,6 +68,7 @@ const BillDetails = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/myPayBils");
       })
       .catch((err) =>
         Swal.fire({
@@ -78,6 +80,10 @@ const BillDetails = () => {
         })
       );
   };
+
+  useEffect(() => {
+    document.title = "Details | Eco Bill";
+  }, []);
 
   return (
     <div className=" bg-base-300">
