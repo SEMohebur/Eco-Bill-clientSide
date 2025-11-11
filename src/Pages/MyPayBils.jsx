@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
+import Swal from "sweetalert2";
 
 const MyPayBils = () => {
   const { userInfo } = use(AuthContext);
@@ -57,6 +58,42 @@ const MyPayBils = () => {
       .catch((err) => console.log(err));
   };
 
+  // handle delete
+  const handleDelete = (bill) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/my-paybill-history/${bill._id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              document.getElementById("my_modal_5").close();
+              window.location.reload();
+            }
+          })
+          .catch((err) => {
+            Swal.fire({
+              title: "Error!",
+              text: err.message,
+              icon: "error",
+            });
+          });
+      }
+    });
+  };
+
   return (
     <div className=" bg-base-300">
       <div className=" w-11/12 mx-auto">
@@ -106,7 +143,10 @@ const MyPayBils = () => {
                         </button>
                       </td>
                       <td>
-                        <button className="btn btn-xs btn-error text-white hover:scale-105 transition-transform">
+                        <button
+                          onClick={() => handleDelete(bill)}
+                          className="btn btn-xs btn-error text-white hover:scale-105 transition-transform"
+                        >
                           Delete
                         </button>
                       </td>
@@ -147,7 +187,7 @@ const MyPayBils = () => {
                   <div>
                     <label className=" label">Amount</label>
                     <input
-                      type="number"
+                      type="text"
                       name="amount"
                       placeholder="amount"
                       className=" input"
@@ -181,7 +221,7 @@ const MyPayBils = () => {
                   <div>
                     <label className=" label">Date</label>
                     <input
-                      type="text"
+                      type="date"
                       name="date"
                       placeholder="date"
                       className=" input"

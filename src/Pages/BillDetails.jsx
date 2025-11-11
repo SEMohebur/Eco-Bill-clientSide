@@ -212,7 +212,7 @@ const BillDetails = () => {
                 <div>
                   <label className=" label">Date</label>
                   <input
-                    type="text"
+                    type="date"
                     name="date"
                     placeholder="date"
                     className=" input"
