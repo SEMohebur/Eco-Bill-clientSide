@@ -5,6 +5,7 @@ const MyPayBils = () => {
   const { userInfo } = use(AuthContext);
 
   const [billHistory, setBillHistory] = useState(null);
+  const [selectBill, setSelectBill] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-paybill-history?email=${userInfo.email}`)
@@ -22,7 +23,39 @@ const MyPayBils = () => {
     0
   );
 
-  ////
+  ////update modal open
+  const handleUpdateModal = (bill) => {
+    document.getElementById("my_modal_5").showModal();
+    setSelectBill(bill);
+  };
+
+  //update my bill history
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault();
+    // modalbtn close
+    const formData = {
+      bill_id: selectBill._id,
+      amount: e.target.amount.value,
+      address: e.target.address.value,
+      phone: e.target.phone.value,
+      date: e.target.date.value,
+    };
+    fetch(`http://localhost:3000/my-paybill-history/${formData.bill_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          document.getElementById("my_modal_5").close();
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className=" bg-base-300">
@@ -65,7 +98,10 @@ const MyPayBils = () => {
                       <td className="whitespace-nowrap">{bill.phone}</td>
                       <td className="whitespace-nowrap">{bill.date}</td>
                       <td>
-                        <button className="btn btn-xs btn-warning text-white hover:scale-105 transition-transform">
+                        <button
+                          onClick={() => handleUpdateModal(bill)}
+                          className="btn btn-xs btn-warning text-white hover:scale-105 transition-transform"
+                        >
                           Update
                         </button>
                       </td>
@@ -97,6 +133,70 @@ const MyPayBils = () => {
             </div>
           </div>
         </div>
+        {/* modal  */}
+
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg text-center">
+              Update Payment Information
+            </h3>
+
+            <div className="modal-action  flex justify-center ">
+              <form onSubmit={handleUpdateSubmit}>
+                <div className=" space-y-2">
+                  <div>
+                    <label className=" label">Amount</label>
+                    <input
+                      type="number"
+                      name="amount"
+                      placeholder="amount"
+                      className=" input"
+                      defaultValue={selectBill?.amount}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className=" label">Address</label>
+                    <input
+                      type="text"
+                      name="address"
+                      placeholder="address"
+                      className=" input"
+                      defaultValue={selectBill?.address}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className=" label">Phone</label>
+                    <input
+                      type="number"
+                      name="phone"
+                      placeholder="number"
+                      className=" input"
+                      defaultValue={selectBill?.phone}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className=" label">Date</label>
+                    <input
+                      type="text"
+                      name="date"
+                      placeholder="date"
+                      className=" input"
+                      defaultValue={selectBill?.date}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <button className="btn my-2 w-full btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+        {/* modal  */}
       </div>
     </div>
   );
