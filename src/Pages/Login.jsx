@@ -6,7 +6,7 @@ import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { login, loading, googleSignIn } = use(AuthContext);
+  const { login, googleSignIn } = use(AuthContext);
   const [paswordShow, setPassworShow] = useState(false);
   const naviaget = useNavigate();
   useEffect(() => {
@@ -40,14 +40,6 @@ const Login = () => {
       );
   };
 
-  if (loading) {
-    return (
-      <div className=" flex justify-center items-center h-48">
-        <span className="loading loading-ring loading-xl"></span>
-      </div>
-    );
-  }
-
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
@@ -74,9 +66,11 @@ const Login = () => {
   };
 
   return (
-    <div className="hero  p-5">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h2 className=" font-bold text-3xl text-center py-4">Login</h2>
+    <div className="hero bg-indigo-950 p-5">
+      <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
+        <h2 className=" font-bold text-3xl text-warning text-center py-4">
+          Login
+        </h2>
         <div className="card-body">
           <form onSubmit={handleLogin}>
             <fieldset className="fieldset">

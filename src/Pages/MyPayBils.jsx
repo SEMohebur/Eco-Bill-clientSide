@@ -110,11 +110,11 @@ const MyPayBils = () => {
   }, []);
 
   return (
-    <div className=" bg-base-300">
+    <div className=" bg-indigo-950">
       <div className=" w-11/12 mx-auto">
         <div className=" py-5">
           <div className=" bg-white rounded-xl">
-            <h2 className=" text-center text-3xl font-bold py-5">
+            <h2 className=" text-center text-3xl text-warning font-bold py-5">
               My Pay Bill History
             </h2>
             {/* table  */}
@@ -192,13 +192,13 @@ const MyPayBils = () => {
 
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
-            <h3 className="font-bold text-lg text-center">
+            <h3 className="font-bold text-lg text-warning text-center">
               Update Payment Information
             </h3>
 
             <div className="modal-action  flex justify-center ">
               <form onSubmit={handleUpdateSubmit}>
-                <div className=" space-y-2">
+                <div className=" space-y-2 grid grid-cols-2 gap-3">
                   <div>
                     <label className=" label">Amount</label>
                     <input

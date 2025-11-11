@@ -86,9 +86,11 @@ const BillDetails = () => {
   }, []);
 
   return (
-    <div className=" bg-base-300">
+    <div className=" bg-indigo-950">
       <div className="w-11/12 mx-auto py-6">
-        <h2 className=" text-center py-5 text-2xl font-bold">Bill Details</h2>
+        <h2 className=" text-center py-5 text-3xl text-warning font-bold">
+          Bill Details
+        </h2>
         <div className=" grid md:grid-cols-2 grid-rows-1 bg-white rounded-xl gap-5 p-5">
           <img
             src={image}
@@ -96,23 +98,23 @@ const BillDetails = () => {
             className=" h-80 w-full object-cover rounded-2xl"
           />
           <div className=" space-y-3">
-            <h2 className=" text-xl font-bold flex items-center gap-2">
+            <h2 className=" text-xl font-bold flex items-center gap-2 text-warning">
               <MdOutlineSubtitles />
               <span>{title}</span>
             </h2>
             <p className=" flex items-center gap-2">
-              <IoIosWater />
+              <IoIosWater className=" text-blue-400" />
 
-              <span>{category}</span>
+              <span className=" font-semibold">{category}</span>
             </p>
             <p className=" flex items-center gap-2">
-              <FaLocationDot />
+              <FaLocationDot className=" text-blue-600" />
 
               <span>{location}</span>
             </p>
 
             <p className=" flex items-center gap-2">
-              <FaMoneyCheckDollar />
+              <span className=" text-red-400">$</span>
 
               <span>{amount}</span>
             </p>
@@ -122,7 +124,9 @@ const BillDetails = () => {
               <span>{date}</span>
             </p>
             <p className="">
-              <span>{description.slice(0, 150)}...</span>
+              <span className=" text-gray-600">
+                {description.slice(0, 150)}...
+              </span>
             </p>
             <div>
               {bilingDate == false ? (
@@ -146,12 +150,14 @@ const BillDetails = () => {
       {/* modal  */}
 
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg text-center">Payment Information</h3>
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center text-warning ">
+            Payment Information
+          </h3>
 
           <div className="modal-action  flex justify-center ">
             <form onSubmit={handlePaymentInfoPost}>
-              <div className=" space-y-2">
+              <div className=" space-y-2 grid md:grid-cols-2 gap-3">
                 <div>
                   <label className=" label">Email</label>
                   <input
@@ -215,18 +221,18 @@ const BillDetails = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className=" col-span-2">
                   <label className=" label">Date</label>
                   <input
                     type="date"
                     name="date"
                     placeholder="date"
-                    className=" input"
+                    className=" input w-full"
                     defaultValue={currentDate}
                     readOnly
                   />
                 </div>
-                <div>
+                <div className=" col-span-2">
                   <label className=" label">Additional info</label>
                   <textarea
                     name="additionalInfo"

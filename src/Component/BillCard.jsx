@@ -14,18 +14,18 @@ const BillCard = ({ bill }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{bill.title}</h2>
+        <h2 className="card-title text-warning">{bill.title}</h2>
         <p>
-          <span className=" bg-red-500 p-1 rounded-full text-white">
+          <span className=" bg-red-500 font-bold p-1 rounded-full text-white">
             {bill.category}
           </span>
         </p>
 
-        <div className=" text-green-600 flex items-center gap-1">
-          <FaLocationDot className=" text-gray-700" />
-          <p>{bill.location}</p>
+        <div className="  text-sm font-bold flex items-center gap-1">
+          <FaLocationDot className=" text-indigo-400 " />
+          <p className=" text-indigo-400">{bill.location}</p>
         </div>
-        <strong className=" text-red-500">$ {bill.amount}</strong>
+        <strong className=" text-red-400">$ {bill.amount}</strong>
         <div className="card-actions justify-end">
           <Link to={`/billDetails/${bill._id}`} className="btn btn-primary">
             See Details

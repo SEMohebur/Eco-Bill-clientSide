@@ -27,31 +27,34 @@ const Navbar = () => {
       <div className=" flex flex-col justify-center items-center md:flex-row md:justify-between">
         {/* left logo  */}
         <div>
-          <Link to="/" className=" ">
+          <Link to="/">
             <img
-              className=" h-12 w-12 rounded-full mb-5 md:mb-0"
+              className=" h-12 w-12 rounded-full mb-5 md:mb-0 hover:text-indigo-700 hover:scale-125 transition-transform duration-300"
               src={logo}
               alt=""
             />
           </Link>
         </div>
         {/* right links  */}
-        <ul className=" flex flex-col md:flex-row items-center gap-5">
-          <li>
+        <ul className=" flex flex-col md:flex-row items-center gap-5 font-bold text-warning">
+          <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li>
+          <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
             <NavLink to="/bills">Bills</NavLink>
+          </li>
+          <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
+            <NavLink to="/about">About</NavLink>
           </li>
 
           <li>
             {" "}
             {userInfo?.email ? (
               <ul className=" flex flex-col md:flex-row  gap-5 items-center">
-                <li>
+                <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
                   <NavLink to="/myPayBils">My Pay Bills</NavLink>
                 </li>
-                <li>
+                <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
                   <img
                     className="w-10 h-10  rounded-full object-cover border border-gray-300 shadow-sm hover:scale-105 transition-transform duration-300"
                     src={userInfo ? userInfo?.photoURL : <FaUserCheck />}

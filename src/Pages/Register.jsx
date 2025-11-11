@@ -106,9 +106,11 @@ const Register = () => {
   }
 
   return (
-    <div className="hero p-5">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h2 className=" font-bold text-3xl text-center py-4">Register</h2>
+    <div className="hero bg-indigo-950 p-5">
+      <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
+        <h2 className=" font-bold text-3xl text-warning text-center py-4">
+          Register
+        </h2>
         <div className="card-body">
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">

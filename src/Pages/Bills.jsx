@@ -45,15 +45,17 @@ const Bills = () => {
   }
 
   return (
-    <div className=" bg-base-300">
+    <div className=" bg-indigo-950">
       {" "}
       <div className=" w-11/12 mx-auto py-5">
-        <h1 className=" text-center font-bold text-4xl py-5">Bills</h1>
+        <h1 className=" text-center font-bold text-3xl text-warning py-5">
+          Bills
+        </h1>
 
         <div className=" flex justify-between my-4">
           <div>
-            <span>Total Bills:</span>
-            <span className=" text-green-700"> {filterBill.length}</span>
+            <span className=" font-bold text-white">Total Bills : </span>
+            <span className=" text-warning "> {filterBill.length}</span>
           </div>
 
           <select

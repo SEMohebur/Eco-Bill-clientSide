@@ -62,50 +62,49 @@ const Home = () => {
   }, []);
 
   return (
-    <div className=" bg-base-300">
-      <div className=" w-11/12 mx-auto ">
-        {/* banner  */}
-        <section className=" py-5 bg-blue-300">
-          <div className=" text-center">
-            <h1 className=" text-4xl font-bold text-gray-700">
-              Manage Your Utility Bills Effortlessly
-            </h1>
-            <p className=" font-semibold text-gray-500">Welcome to Eco Bill</p>
-            <p className=" text-sm font-thin">
-              Manage your Electricity, Gas, Water, and Internet bills easily and
-              securely.
-            </p>
-          </div>
+    <div className=" bg-indigo-950">
+      {/* banner  */}
+      <section className=" py-5 bg-gray-800 text-white">
+        <div className=" text-center">
+          <h1 className=" text-4xl font-bold text-warning">
+            Manage Your Utility Bills Effortlessly
+          </h1>
+          <p className=" font-semibold ">Welcome to Eco Bill</p>
+          <p className=" text-sm font-thin">
+            Manage your Electricity, Gas, Water, and Internet bills easily and
+            securely.
+          </p>
+        </div>
 
-          <div className="  gap-3 p-10">
-            <Slider {...settings}>
-              {bannerData.map((item, index) => {
-                return (
-                  <div key={index} className="flex card card-side  ">
-                    <figure>
-                      <img
-                        className=" max-h-60  rounded-md"
-                        src={item.img}
-                        alt="Album"
-                      />
-                    </figure>
-                    <div className="card-body text-center text-white">
-                      <h2 className=" text-2xl font-bold  text-center">
-                        {item.name}
-                      </h2>
-                      <p className=" font-thin">{item.description}</p>
-                      <div className="card-actions justify-end"></div>
-                    </div>
+        <div className="  gap-3 p-10">
+          <Slider {...settings}>
+            {bannerData.map((item, index) => {
+              return (
+                <div key={index} className="flex card card-side  ">
+                  <figure>
+                    <img
+                      className=" max-h-60  rounded-md"
+                      src={item.img}
+                      alt="Album"
+                    />
+                  </figure>
+                  <div className="card-body text-center text-white">
+                    <h2 className=" text-2xl font-bold  text-center text-warning">
+                      {item.name}
+                    </h2>
+                    <p className=" font-thin ">{item.description}</p>
+                    <div className="card-actions justify-end"></div>
                   </div>
-                );
-              })}
-            </Slider>
-          </div>
-        </section>
-
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
+      </section>
+      <div className=" w-11/12 mx-auto ">
         {/* category  */}
         <div>
-          <h2 className=" text-center font-bold text-3xl text-gray-700">
+          <h2 className=" text-center font-bold text-3xl  text-warning mt-2">
             {" "}
             Category
           </h2>
@@ -114,10 +113,10 @@ const Home = () => {
               return (
                 <div
                   key={index}
-                  className=" text-center rounded-md space-y-3 p-4 bg-blue-500 hover:bg-blue-800 text-white px-4 py-2  transition duration-300 cursor-pointer"
+                  className=" text-center rounded-md space-y-3 p-4 bg-amber-300 hover:bg-blue-800 text-white px-4 py-2  transition duration-300 cursor-pointer"
                 >
                   <div className=" flex justify-center">
-                    <p className=" text-3xl">{item.icon}</p>
+                    <p className=" text-3xl ">{item.icon}</p>
                   </div>
                   <p className=" text-2xl">{item.title}</p>
                 </div>
@@ -128,7 +127,7 @@ const Home = () => {
 
         {/* recent 6 BillCard  */}
         <div className=" py-5">
-          <h2 className=" text-center py-5 text-3xl font-bold text-gray-700">
+          <h2 className=" text-center py-5 text-3xl font-bold text-warning">
             Recent Bill
           </h2>
           <div className=" grid md:grid-cols-3 gap-3">
@@ -140,11 +139,13 @@ const Home = () => {
 
         {/* Our Services  */}
         <div className=" py-5">
-          <h2 className=" text-3xl font-bold text-center py-5">Our Services</h2>
+          <h2 className=" text-3xl text-warning font-bold text-center py-5">
+            Our Services
+          </h2>
           <div className=" grid md:grid-cols-3 gap-3">
             {/* card  */}
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">
+              <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
               <p>
@@ -155,7 +156,7 @@ const Home = () => {
               </p>
             </div>
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">
+              <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
               <p>
@@ -166,7 +167,9 @@ const Home = () => {
               </p>
             </div>
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">Gas Bill Management</h3>
+              <h3 className=" font-bold text-xl text-warning">
+                Gas Bill Management
+              </h3>
               <p>
                 Our Gas Bill Management System helps users easily check, pay,
                 and download their gas bills online. It offers a secure,
@@ -175,7 +178,9 @@ const Home = () => {
               </p>
             </div>
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">Water Bill Tracking System</h3>
+              <h3 className=" font-bold text-xl text-warning">
+                Water Bill Tracking System
+              </h3>
               <p>
                 Our Water Bill Tracking System allows users to monitor and pay
                 their water bills online. It provides an easy, secure, and
@@ -184,7 +189,9 @@ const Home = () => {
               </p>
             </div>
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">Internet Bill Handling</h3>
+              <h3 className=" font-bold text-xl text-warning">
+                Internet Bill Handling
+              </h3>
               <p>
                 Our Internet Bill Handling System helps users manage their
                 internet bills with ease. It enables online viewing, secure
@@ -193,7 +200,7 @@ const Home = () => {
               </p>
             </div>
             <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
-              <h3 className=" font-bold text-xl">
+              <h3 className=" font-bold text-xl text-warning">
                 Download Paid Bill Reports (PDF)
               </h3>
               <p>
@@ -207,13 +214,13 @@ const Home = () => {
 
         {/* contact us  */}
         <div className=" py-5">
-          <h2 className=" text-3xl font-bold text-center py-5">
+          <h2 className=" text-3xl font-bold text-center py-5 text-warning">
             {" "}
             Contact Information
           </h2>
 
           <div className="max-w-6xl mx-auto text-center mb-12">
-            <p className=" text-gray-600 text-base md:text-lg">
+            <p className=" text-white text-base md:text-lg ">
               Get in touch with us for billing support, feedback, or general
               inquiries.
             </p>
