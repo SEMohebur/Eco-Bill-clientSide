@@ -1,6 +1,11 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
+import { DataGrid } from "react-data-grid";
+import "react-data-grid/lib/styles.css";
+
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const MyPayBils = () => {
   const { userInfo } = use(AuthContext);
@@ -109,6 +114,42 @@ const MyPayBils = () => {
     document.title = "My pay bill | Eco Bill";
   }, []);
 
+  // pdf download
+  const columns = [
+    { key: "_id", name: "ID" },
+    { key: "userName", name: "User Name" },
+    { key: "email", name: "Email" },
+    { key: "amount", name: "Amount" },
+    { key: "address", name: "Address" },
+    { key: "phone", name: "Phone" },
+    { key: "date", name: "Date" },
+  ];
+
+  console.log(billHistory);
+
+  const pdfDownloader = () => {
+    if (!billHistory || billHistory.length === 0) {
+      alert("No data to export!");
+      return;
+    }
+    const doc = new jsPDF();
+
+    doc.text("My Pay Bill Report", 14, 10);
+
+    const tableColumn = columns.map((col) => col.name);
+    const tableRows = billHistory.map((row) =>
+      columns.map((col) => row[col.key] || "")
+    );
+
+    autoTable(doc, {
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save("MyPayBills.pdf");
+  };
+
   return (
     <div className=" bg-indigo-950">
       <div className=" w-11/12 mx-auto">
@@ -117,7 +158,17 @@ const MyPayBils = () => {
             <h2 className=" text-center text-3xl text-warning font-bold py-5">
               My Pay Bill History
             </h2>
-            {/* table  */}
+
+            {/* pdf table  */}
+            <div className=" hidden" style={{ height: "400px" }}>
+              {billHistory && (
+                <DataGrid
+                  columns={columns}
+                  rows={billHistory.map((row, i) => ({ id: i + 1, ...row }))}
+                />
+              )}
+            </div>
+            {/* main table  */}
             <div className="overflow-x-auto w-full">
               <table className="table table-zebra w-full text-sm md:text-base ">
                 <thead className="bg-gray-200 text-gray-800 uppercase text-sm">
@@ -183,7 +234,9 @@ const MyPayBils = () => {
                 </p>
               </div>
               <div>
-                <button className="btn btn-primary">Download Report</button>
+                <button onClick={pdfDownloader} className="btn btn-primary">
+                  Download Report
+                </button>
               </div>
             </div>
           </div>
