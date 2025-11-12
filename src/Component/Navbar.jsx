@@ -58,6 +58,9 @@ const Navbar = () => {
           <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
             <NavLink to="/about">About</NavLink>
           </li>
+          <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
 
           <li>
             {" "}

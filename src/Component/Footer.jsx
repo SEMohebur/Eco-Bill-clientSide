@@ -44,6 +44,9 @@ const Footer = () => {
             <a href="/contact" className="link link-hover">
               Contact
             </a>
+            <a href="/myPayBils" className="link link-hover">
+              /myPayBils
+            </a>
           </nav>
 
           {/* Legal */}

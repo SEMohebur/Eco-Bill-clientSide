@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { IoIosWater } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
@@ -12,18 +12,33 @@ import Swal from "sweetalert2";
 const BillDetails = () => {
   const { userInfo } = use(AuthContext);
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [bill, setBill] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const bill = useLoaderData();
+  useEffect(() => {
+    fetch(`http://localhost:3000/bills/${id}`, {
+      headers: {
+        authorization: `Bearer ${userInfo.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBill(data), setLoading(false);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+
   const { amount, category, date, description, image, location, title, _id } =
-    bill.result;
+    bill.result || {};
 
   const [bilingDate, setBilingDate] = useState(false);
   const today = new Date();
   const currentDate = today.toISOString().split("T")[0];
 
   useEffect(() => {
-    const billYear = parseInt(date.split("-")[0]);
-    const billMonth = parseInt(date.split("-")[1]);
+    const billYear = parseInt(date?.split("-")[0]);
+    const billMonth = parseInt(date?.split("-")[1]);
 
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth() + 1;
@@ -85,6 +100,14 @@ const BillDetails = () => {
     document.title = "Details | Eco Bill";
   }, []);
 
+  // if (loading) {
+  //   return (
+  //     <div className=" flex justify-center items-center h-48">
+  //       <span className="loading loading-ring loading-xl "></span>
+  //     </div>
+  //   );
+  // }
+
   return (
     <div className=" bg-indigo-950">
       <div className="w-11/12 mx-auto py-6">
@@ -125,7 +148,7 @@ const BillDetails = () => {
             </p>
             <p className="">
               <span className=" text-gray-600">
-                {description.slice(0, 150)}...
+                {description?.slice(0, 150)}...
               </span>
             </p>
             <div>

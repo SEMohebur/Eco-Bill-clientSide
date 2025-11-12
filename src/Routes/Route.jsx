@@ -41,8 +41,6 @@ export const router = createBrowserRouter([
             <BillDetails></BillDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/bills/${params.id}`),
       },
 
       {
