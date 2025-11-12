@@ -105,20 +105,20 @@ const BillDetails = () => {
             <p className=" flex items-center gap-2">
               <IoIosWater className=" text-blue-400" />
 
-              <span className=" font-semibold">{category}</span>
+              <span className=" font-semibold text-gray-700">{category}</span>
             </p>
             <p className=" flex items-center gap-2">
               <FaLocationDot className=" text-blue-600" />
 
-              <span>{location}</span>
+              <span className=" text-gray-700">{location}</span>
             </p>
 
             <p className=" flex items-center gap-2">
               <span className=" text-red-400">$</span>
 
-              <span>{amount}</span>
+              <span className=" text-gray-700">{amount}</span>
             </p>
-            <p className=" flex items-center gap-2">
+            <p className=" flex items-center gap-2 text-gray-700">
               <MdDateRange />
 
               <span>{date}</span>
@@ -140,7 +140,7 @@ const BillDetails = () => {
             <button
               onClick={handlePayBill}
               disabled={!bilingDate}
-              className=" btn btn-primary"
+              className=" btn btn-primary shadow-md text-amber-400"
             >
               Pay Bill
             </button>

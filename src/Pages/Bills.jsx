@@ -63,7 +63,7 @@ const Bills = () => {
             id="myDropdown"
             value={category}
             onChange={handleCategoryChange}
-            className=" border-2  border-none bg-white py-1  rounded-2xl text-center "
+            className=" border-2  border-none bg-white text-gray-700 py-1  rounded-2xl text-center "
           >
             <option value="">All</option>
             <option value="Electricity">Electricity</option>

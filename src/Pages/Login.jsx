@@ -91,7 +91,7 @@ const Login = () => {
                     type={paswordShow ? "text" : "password"}
                     placeholder="Enter your password"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                    className="w-full input px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
                   />
                   <button
                     type="button"

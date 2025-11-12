@@ -41,7 +41,7 @@ const ContactUs = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto text-gray-700">
           <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
             <MdMarkEmailRead className="w-10 h-10 text-blue-400 mb-3" />
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>

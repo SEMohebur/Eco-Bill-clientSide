@@ -173,11 +173,11 @@ const MyPayBils = () => {
             <hr className=" text-gray-300" />
             <div className=" flex justify-between item-center p-5">
               <div className=" flex gap-5">
-                <p>
+                <p className=" text-gray-700">
                   Total Bill Paid:{" "}
                   <span className=" text-green-500">{totalBillLength}</span>
                 </p>
-                <p>
+                <p className=" text-gray-700">
                   Total Amount : ৳
                   <span className=" text-green-500">{totalAmount}</span>
                 </p>
