@@ -37,15 +37,14 @@ const Register = () => {
       .then((res) => {
         updateUser(displayName, photoURL)
           .then(() => {
-            setUserInfo({ ...res.user, displayName, photoURL }),
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Register Successfully done",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            navigate("/");
+            setUserInfo({ ...res.user, displayName, photoURL }), navigate("/");
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Register Successfully done",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           })
           .catch((err) =>
             Swal.fire({
