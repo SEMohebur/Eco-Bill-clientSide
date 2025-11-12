@@ -129,7 +129,11 @@ const MyPayBils = () => {
 
   const pdfDownloader = () => {
     if (!billHistory || billHistory.length === 0) {
-      alert("No data to export!");
+      Swal.fire({
+        title: "error",
+        text: "Bill History Not Found",
+        icon: "question",
+      });
       return;
     }
     const doc = new jsPDF();
@@ -141,10 +145,18 @@ const MyPayBils = () => {
       columns.map((col) => row[col.key] || "")
     );
 
+    // footer row
+    const footRows = [
+      ["Bill History", "", "", "", "", "", `Total: ${totalAmount}`],
+    ];
+
     autoTable(doc, {
       head: [tableColumn],
       body: tableRows,
+      foot: footRows,
+
       startY: 20,
+      footStyles: { fillColor: [200, 200, 200] },
     });
 
     doc.save("MyPayBills.pdf");

@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import { FaLocationDot } from "react-icons/fa6";
 
 const BillCard = ({ bill }) => {
-  // console.log(bill);
   return (
     <div className="card bg-base-100  shadow-sm">
       <figure>

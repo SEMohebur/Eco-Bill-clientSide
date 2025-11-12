@@ -21,7 +21,7 @@ const Navbar = () => {
       });
     });
   };
-  // console.log(userInfo);
+  // e.log(userInfo);
 
   //theme = dark/light
   useEffect(() => {
