@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import logo from "../assets/EcoBill.png";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varient";
 
 const About = () => {
   useEffect(() => {
@@ -11,12 +13,25 @@ const About = () => {
     <div className=" bg-indigo-950 text-white">
       <div className=" w-11/12 mx-auto">
         <div className=" text-center p-5">
-          <h2 className=" text-3xl font-bold text-warning">About Us</h2>
-          <p>
+          <motion.h2
+            variants={fadeIn("left", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className=" text-3xl font-bold text-warning"
+          >
+            About Us
+          </motion.h2>
+          <motion.div
+            variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+          >
             {" "}
             We make paying your utility bills simple, secure, and fast. Our
             mission is to bring all your payments into one convenient platform.
-          </p>
+          </motion.div>
         </div>
         <div className="grid md:grid-cols-2 items-center gap-10 py-16 px-6 md:px-20 bg-gray-50 rounded-2xl shadow-sm">
           <div className="space-y-6">
@@ -94,7 +109,13 @@ const About = () => {
           </div>
         </div>
 
-        <div className=" py-5">
+        <motion.div
+          variants={fadeIn("down", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className=" py-5"
+        >
           <h3 className=" text-xl py-4 font-bold text-center text-warning">
             Our Team
           </h3>
@@ -136,7 +157,7 @@ const About = () => {
               <p className=" text-indigo-900">UI/UX Designer</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className=" text-center space-y-3 pb-4">
           <h3 className=" text-xl font-bold text-warning ">

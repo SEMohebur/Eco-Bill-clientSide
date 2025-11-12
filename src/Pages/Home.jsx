@@ -14,6 +14,7 @@ import { IoCall } from "react-icons/io5";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import * as motion from "motion/react-client";
 
 const Home = () => {
   const data = useLoaderData();
@@ -84,14 +85,22 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="  gap-3 p-10">
+        <motion.div
+          className="  gap-3 p-10"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+          }}
+        >
           <Slider {...settings}>
             {bannerData.map((item, index) => {
               return (
                 <div key={index} className="flex card card-side  ">
                   <figure>
                     <img
-                      className=" max-h-60  rounded-md"
+                      className=" max-h-80  rounded-md"
                       src={item.img}
                       alt="Album"
                     />
@@ -107,7 +116,7 @@ const Home = () => {
               );
             })}
           </Slider>
-        </div>
+        </motion.div>
       </section>
       <div className=" w-11/12 mx-auto ">
         {/* category  */}

@@ -50,7 +50,7 @@ const BillDetails = () => {
     document.getElementById("my_modal_5").showModal();
   };
 
-  // modal form handle
+  // modal form handle post
   const handlePaymentInfoPost = (e) => {
     e.preventDefault();
     const formData = {
@@ -71,6 +71,7 @@ const BillDetails = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${userInfo.accessToken}`,
       },
       body: JSON.stringify(formData),
     })

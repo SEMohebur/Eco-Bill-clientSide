@@ -3,7 +3,8 @@ import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
 import { DataGrid } from "react-data-grid";
 import "react-data-grid/lib/styles.css";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../varient";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
@@ -13,8 +14,13 @@ const MyPayBils = () => {
   const [billHistory, setBillHistory] = useState(null);
   const [selectBill, setSelectBill] = useState(null);
 
+  //get my paybil history
   useEffect(() => {
-    fetch(`http://localhost:3000/my-paybill-history?email=${userInfo.email}`)
+    fetch(`http://localhost:3000/my-paybill-history?email=${userInfo.email}`, {
+      headers: {
+        authorization: `Bearer ${userInfo.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setBillHistory(data);
@@ -50,6 +56,7 @@ const MyPayBils = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${userInfo.accessToken}`,
       },
       body: JSON.stringify(formData),
     })
@@ -87,6 +94,7 @@ const MyPayBils = () => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            authorization: `Bearer ${userInfo.accessToken}`,
           },
         })
           .then((res) => res.json())
@@ -124,8 +132,6 @@ const MyPayBils = () => {
     { key: "phone", name: "Phone" },
     { key: "date", name: "Date" },
   ];
-
-  console.log(billHistory);
 
   const pdfDownloader = () => {
     if (!billHistory || billHistory.length === 0) {
@@ -167,9 +173,15 @@ const MyPayBils = () => {
       <div className=" w-11/12 mx-auto">
         <div className=" py-5">
           <div className=" bg-white rounded-xl">
-            <h2 className=" text-center text-3xl text-warning font-bold py-5">
+            <motion.h2
+              variants={fadeIn("down", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className=" text-center text-3xl text-warning font-bold py-5"
+            >
               My Pay Bill History
-            </h2>
+            </motion.h2>
 
             {/* pdf table  */}
             <div className=" hidden" style={{ height: "400px" }}>
@@ -182,7 +194,7 @@ const MyPayBils = () => {
             </div>
             {/* main table  */}
             <div className="overflow-x-auto w-full">
-              <table className="table table-zebra w-full text-sm md:text-base ">
+              <table className="table w-full text-sm md:text-base ">
                 <thead className="bg-gray-200 text-gray-800 uppercase text-sm">
                   <tr>
                     <th>#</th>

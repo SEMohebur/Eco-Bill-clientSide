@@ -10,6 +10,7 @@ import MyPayBils from "../Pages/MyPayBils";
 import Bills from "../Pages/Bills";
 import ContactUs from "../Pages/ContactUs";
 import BillDetails from "../Pages/BillDetails";
+import Profile from "../Pages/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home></Home>,
         loader: () => fetch("http://localhost:3000/latest-bills"),
+        hydrateFallbackElement: (
+          <div className=" flex justify-center items-center h-48">
+            <span className="loading loading-ring loading-xl "></span>
+          </div>
+        ),
       },
       {
         path: "/about",
@@ -33,6 +39,11 @@ export const router = createBrowserRouter([
         path: "/bills",
         element: <Bills></Bills>,
         loader: () => fetch("http://localhost:3000/bills"),
+        hydrateFallbackElement: (
+          <div className=" flex justify-center items-center h-48">
+            <span className="loading loading-ring loading-xl "></span>
+          </div>
+        ),
       },
       {
         path: "/billDetails/:id",
@@ -48,6 +59,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyPayBils></MyPayBils>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
           </PrivateRoute>
         ),
       },

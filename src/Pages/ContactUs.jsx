@@ -4,6 +4,8 @@ import { IoCall } from "react-icons/io5";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { MdMarkEmailRead } from "react-icons/md";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varient";
 
 const ContactUs = () => {
   useEffect(() => {
@@ -29,17 +31,29 @@ const ContactUs = () => {
     <div className=" bg-indigo-950 flex flex-col text-center p-10">
       {/* contact us  */}
       <div className=" py-5">
-        <h2 className=" text-3xl font-bold text-center py-5 text-warning">
+        <motion.h2
+          variants={fadeIn("left", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className=" text-3xl font-bold text-center py-5 text-warning"
+        >
           {" "}
           Contact Information
-        </h2>
+        </motion.h2>
 
-        <div className="max-w-6xl mx-auto text-center mb-12">
+        <motion.h6
+          variants={fadeIn("right", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="max-w-6xl mx-auto text-center mb-12"
+        >
           <p className=" text-white text-base md:text-lg ">
             Get in touch with us for billing support, feedback, or general
             inquiries.
           </p>
-        </div>
+        </motion.h6>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto text-gray-700">
           <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">

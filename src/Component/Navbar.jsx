@@ -73,6 +73,7 @@ const Navbar = () => {
                   <div className="dropdown">
                     <img
                       tabIndex={0}
+                      referrerPolicy="no-referrer"
                       role="button"
                       className="w-10 h-10  rounded-full object-cover border border-gray-300 shadow-sm hover:scale-105 transition-transform duration-300"
                       src={userInfo ? userInfo?.photoURL : <FaUserCheck />}
@@ -84,7 +85,7 @@ const Navbar = () => {
                       className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                     >
                       <li>
-                        <Link>Profile</Link>
+                        <Link to="/profile">Profile</Link>
                       </li>
                       <li className=" ">
                         <a>
