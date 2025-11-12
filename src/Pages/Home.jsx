@@ -13,6 +13,7 @@ import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Home = () => {
   const data = useLoaderData();
@@ -61,15 +62,22 @@ const Home = () => {
     document.title = "Home | Eco Bill";
   }, []);
 
+  const [text] = useTypewriter({
+    words: ["Manage Your Utility Bills Effortlessly"],
+    loop: 3,
+    // onLoopDone: () => console.log(`loop completed after 3 runs.`),
+  });
+
   return (
     <div className=" bg-indigo-950">
       {/* banner  */}
       <section className=" py-5 bg-gray-800 text-white">
         <div className=" text-center">
-          <h1 className=" text-4xl font-bold text-warning">
-            Manage Your Utility Bills Effortlessly
+          <h1 className=" text-4xl font-bold text-warning min-h-4">
+            <span>{text || "|"}</span>
           </h1>
-          <p className=" font-semibold ">Welcome to Eco Bill</p>
+          <p className=" font-semibold ">Welcome to Eco Bill </p>
+
           <p className=" text-sm font-thin">
             Manage your Electricity, Gas, Water, and Internet bills easily and
             securely.
@@ -148,7 +156,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Our Electricity Bill Management System allows users to easily
                 view, pay, and download their electricity bills online. It
                 ensures fast, secure, and paperless billing, helping both users
@@ -159,7 +167,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Our Electricity Bill Management System allows users to easily
                 view, pay, and download their electricity bills online. It
                 ensures fast, secure, and paperless billing, helping both users
@@ -170,7 +178,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Gas Bill Management
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Our Gas Bill Management System helps users easily check, pay,
                 and download their gas bills online. It offers a secure,
                 paperless, and time-saving way to manage monthly gas payments
@@ -181,7 +189,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Water Bill Tracking System
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Our Water Bill Tracking System allows users to monitor and pay
                 their water bills online. It provides an easy, secure, and
                 efficient way to track monthly usage, manage payments, and
@@ -192,7 +200,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Internet Bill Handling
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Our Internet Bill Handling System helps users manage their
                 internet bills with ease. It enables online viewing, secure
                 payment, and instant receipt download — ensuring a fast and
@@ -203,7 +211,7 @@ const Home = () => {
               <h3 className=" font-bold text-xl text-warning">
                 Download Paid Bill Reports (PDF)
               </h3>
-              <p>
+              <p className=" text-gray-600">
                 Easily download your paid electricity, gas, water, or internet
                 bill reports in PDF format. Keep a secure digital record of all
                 your transactions — anytime, anywhere.
@@ -213,7 +221,7 @@ const Home = () => {
         </div>
 
         {/* contact us  */}
-        <div className=" py-5">
+        <div className=" py-5 text-gray-700">
           <h2 className=" text-3xl font-bold text-center py-5 text-warning">
             {" "}
             Contact Information
