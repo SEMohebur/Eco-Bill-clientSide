@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,7 +7,7 @@ import { FaLightbulb } from "react-icons/fa6";
 import { FaGasPump } from "react-icons/fa";
 import { IoIosWater } from "react-icons/io";
 import { MdOutlineSignalWifiStatusbarConnectedNoInternet4 } from "react-icons/md";
-import { useLoaderData } from "react-router";
+
 import BillCard from "../Component/BillCard";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
@@ -17,7 +17,19 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import * as motion from "motion/react-client";
 
 const Home = () => {
-  const data = useLoaderData();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("https://eco-bill-server.vercel.app/latest-bills")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   // slider
   const bannerData = [
@@ -68,6 +80,14 @@ const Home = () => {
     loop: 3,
     // onLoopDone: () => console.log(`loop completed after 3 runs.`),
   });
+
+  if (loading) {
+    return (
+      <div className=" flex justify-center items-center h-48">
+        <span className="loading loading-ring loading-xl "></span>
+      </div>
+    );
+  }
 
   return (
     <div className=" bg-indigo-950">
@@ -141,8 +161,7 @@ const Home = () => {
             })}
           </div>
         </div>
-
-        {/* recent 6 BillCard  */}
+        {/* recent 6 BillCard */}
         <div className=" py-5">
           <h2 className=" text-center py-5 text-3xl font-bold text-warning">
             Recent Bill
@@ -153,7 +172,6 @@ const Home = () => {
             })}
           </div>
         </div>
-
         {/* Our Services  */}
         <div className=" py-5">
           <h2 className=" text-3xl text-warning font-bold text-center py-5">
@@ -228,7 +246,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         {/* contact us  */}
         <div className=" py-5 text-gray-700">
           <h2 className=" text-3xl font-bold text-center py-5 text-warning">

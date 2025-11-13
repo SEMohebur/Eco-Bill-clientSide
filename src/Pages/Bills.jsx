@@ -7,16 +7,21 @@ import { motion } from "framer-motion";
 const Bills = () => {
   const bills = useLoaderData();
 
+  const [loading, setLoadng] = useState(false);
   const [filterBill, setFilterBill] = useState(bills);
 
   const [category, setCategory] = useState("");
 
   // filtering
   const handleFilter = (select) => {
-    fetch(`http://localhost:3000/bill-filtering?category=${select}`)
+    setLoadng(true);
+    fetch(
+      `https://eco-bill-server.vercel.app/bill-filtering?category=${select}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setFilterBill(data);
+        setLoadng(false);
       })
       .catch((err) => console.log(err.message));
   };
@@ -55,12 +60,12 @@ const Bills = () => {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
-          className=" text-center font-bold text-3xl text-warning py-5"
+          className=" text-center font-bold text-3xl text-warning "
         >
           Bills
         </motion.h1>
 
-        <div className=" flex justify-between my-4">
+        <div className=" flex justify-between mb-3">
           <div>
             <span className=" font-bold text-white">Total Bills : </span>
             <span className=" text-warning "> {filterBill.length}</span>
@@ -84,10 +89,18 @@ const Bills = () => {
           </select>
         </div>
 
-        <div className=" grid md:grid-cols-3 grid-cols-1  gap-3">
-          {filterBill.map((bill, index) => {
-            return <BillCard key={index} bill={bill}></BillCard>;
-          })}
+        <div>
+          {loading ? (
+            <div className="flex justify-center items-center h-48 text-white">
+              <span className="loading loading-ring loading-xl"></span>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
+              {filterBill.map((bill, index) => (
+                <BillCard key={index} bill={bill} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

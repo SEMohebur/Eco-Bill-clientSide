@@ -21,12 +21,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/latest-bills"),
-        hydrateFallbackElement: (
-          <div className=" flex justify-center items-center h-48">
-            <span className="loading loading-ring loading-xl "></span>
-          </div>
-        ),
       },
       {
         path: "/about",
@@ -38,7 +32,7 @@ export const router = createBrowserRouter([
       {
         path: "/bills",
         element: <Bills></Bills>,
-        loader: () => fetch("http://localhost:3000/bills"),
+        loader: () => fetch("https://eco-bill-server.vercel.app/bills"),
         hydrateFallbackElement: (
           <div className=" flex justify-center items-center h-48">
             <span className="loading loading-ring loading-xl "></span>

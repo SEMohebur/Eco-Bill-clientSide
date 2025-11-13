@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { MdOutlineSubtitles } from "react-icons/md";
 import { IoIosWater } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
@@ -14,10 +14,11 @@ const BillDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [bill, setBill] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bills/${id}`, {
+    setLoading(true);
+    fetch(`https://eco-bill-server.vercel.app/bills/${id}`, {
       headers: {
         authorization: `Bearer ${userInfo.accessToken}`,
       },
@@ -25,6 +26,7 @@ const BillDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setBill(data), setLoading(false);
+        setLoading(false);
       })
       .catch((err) => console.log(err.message));
   }, []);
@@ -67,7 +69,7 @@ const BillDetails = () => {
     document.getElementById("my_modal_5").close();
     e.target.reset();
     // formData post
-    fetch(`http://localhost:3000/my-pay-bill`, {
+    fetch(`https://eco-bill-server.vercel.app/my-pay-bill`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,13 +103,13 @@ const BillDetails = () => {
     document.title = "Details | Eco Bill";
   }, []);
 
-  // if (loading) {
-  //   return (
-  //     <div className=" flex justify-center items-center h-48">
-  //       <span className="loading loading-ring loading-xl "></span>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className=" flex justify-center items-center h-48">
+        <span className="loading loading-ring loading-xl "></span>
+      </div>
+    );
+  }
 
   return (
     <div className=" bg-indigo-950">
@@ -164,7 +166,9 @@ const BillDetails = () => {
             <button
               onClick={handlePayBill}
               disabled={!bilingDate}
-              className=" btn btn-primary shadow-md text-amber-400"
+              className={` btn btn-primary shadow-md ${
+                bilingDate ? "text-white" : "text-red-300"
+              }`}
             >
               Pay Bill
             </button>

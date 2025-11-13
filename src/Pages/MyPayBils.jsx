@@ -13,17 +13,23 @@ const MyPayBils = () => {
 
   const [billHistory, setBillHistory] = useState(null);
   const [selectBill, setSelectBill] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   //get my paybil history
   useEffect(() => {
-    fetch(`http://localhost:3000/my-paybill-history?email=${userInfo.email}`, {
-      headers: {
-        authorization: `Bearer ${userInfo.accessToken}`,
-      },
-    })
+    setLoading(true);
+    fetch(
+      `https://eco-bill-server.vercel.app/my-paybill-history?email=${userInfo.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${userInfo.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setBillHistory(data);
+        setLoading(false);
       })
       .catch((err) => console.log(err.message));
   }, []);
@@ -52,14 +58,17 @@ const MyPayBils = () => {
       phone: e.target.phone.value,
       date: e.target.date.value,
     };
-    fetch(`http://localhost:3000/my-paybill-history/${formData.bill_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${userInfo.accessToken}`,
-      },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://eco-bill-server.vercel.app/my-paybill-history/${formData.bill_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${userInfo.accessToken}`,
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         Swal.fire({
@@ -90,13 +99,16 @@ const MyPayBils = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/my-paybill-history/${bill._id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${userInfo.accessToken}`,
-          },
-        })
+        fetch(
+          `https://eco-bill-server.vercel.app/my-paybill-history/${bill._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${userInfo.accessToken}`,
+            },
+          }
+        )
           .then((res) => res.json())
           .then(() => {
             Swal.fire({
@@ -168,13 +180,21 @@ const MyPayBils = () => {
     doc.save("MyPayBills.pdf");
   };
 
+  if (loading) {
+    return (
+      <div className=" flex justify-center items-center h-48">
+        <span className="loading loading-ring loading-xl "></span>
+      </div>
+    );
+  }
+
   return (
     <div className=" bg-indigo-950">
       <div className=" w-11/12 mx-auto">
         <div className=" py-5">
           <div className=" bg-white rounded-xl">
             <motion.h2
-              variants={fadeIn("down", 0.1)}
+              variants={fadeIn("up", 0.1)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
