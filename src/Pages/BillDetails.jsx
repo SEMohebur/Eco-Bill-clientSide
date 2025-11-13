@@ -117,7 +117,7 @@ const BillDetails = () => {
         <h2 className=" text-center py-5 text-3xl text-warning font-bold">
           Bill Details
         </h2>
-        <div className=" grid md:grid-cols-2 grid-rows-1 bg-white rounded-xl gap-5 p-5">
+        <div className=" grid md:grid-cols-2 grid-rows-1 bg-base-200 rounded-xl gap-5 p-5">
           <img
             src={image}
             alt=""

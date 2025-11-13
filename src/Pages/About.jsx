@@ -33,9 +33,9 @@ const About = () => {
             mission is to bring all your payments into one convenient platform.
           </motion.div>
         </div>
-        <div className="grid md:grid-cols-2 items-center gap-10 py-16 px-6 md:px-20 bg-gray-50 rounded-2xl shadow-sm">
+        <div className="grid md:grid-cols-2 items-center gap-10 py-16 px-6 md:px-20 bg-base-200 rounded-2xl shadow-sm">
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-800">Our Story</h3>
+            <h3 className="text-3xl font-bold text-warning">Our Story</h3>
             <p className="text-gray-600 leading-relaxed">
               We started this project with a simple idea — to make bill payments
               easier for everyone. No more waiting in lines or switching between
@@ -59,16 +59,16 @@ const About = () => {
           </div>
         </div>
         <div className=" py-5 grid grid-cols-2 gap-5 text-gray-400">
-          <div className=" bg-white rounded-2xl text-center flex flex-col items-center justify-center p-5">
+          <div className=" bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-5">
             <h3 className=" text-warning font-bold">Our Mission</h3>
-            <p className=" text-gray-800">
+            <p className=" text-gray-600">
               To simplify the way people manage and pay their utility bills
               through secure and modern technology.
             </p>
           </div>
-          <div className=" bg-white rounded-2xl text-center flex flex-col items-center justify-center p-5">
+          <div className=" bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-5">
             <h3 className="text-warning font-bold"> Our Vision</h3>
-            <p className=" text-gray-800">
+            <p className=" text-gray-600">
               {" "}
               To become the most trusted and user-friendly bill payment platform
               that empowers users to manage their bills effortlessly.
@@ -76,7 +76,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className=" bg-white p-10 rounded-2xl">
+        <div className=" bg-base-200 p-10 rounded-2xl">
           <h3 className=" text-warning text-center text-xl font-bold py-5">
             {" "}
             Why Choose Us
@@ -120,7 +120,7 @@ const About = () => {
             Our Team
           </h3>
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className=" bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">
                 <img
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=800"
@@ -133,7 +133,7 @@ const About = () => {
               <p className=" text-indigo-900">Frontend Developer</p>
             </div>
 
-            <div className="bg-white rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">
                 <img
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=800"
@@ -144,7 +144,7 @@ const About = () => {
               <h5 className=" text-warning font-bold">Choyon</h5>
               <p className=" text-indigo-900">Backend Developer</p>
             </div>
-            <div className="bg-white rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">
                 <img
                   src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=800"

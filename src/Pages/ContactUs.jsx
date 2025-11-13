@@ -55,33 +55,33 @@ const ContactUs = () => {
           </p>
         </motion.h6>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto text-gray-700">
-          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto text-gray-600">
+          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
             <MdMarkEmailRead className="w-10 h-10 text-blue-400 mb-3" />
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>
             <p>support@billmanager.com</p>
           </div>
 
-          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
             <IoCall className="w-10 h-10 text-green-400 mb-3" />
             <h3 className="text-xl font-semibold mb-2">Call Us</h3>
             <p>+880 1234 567 890</p>
           </div>
 
-          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+          <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
             <FaMapMarkedAlt className="w-10 h-10 text-red-400 mb-3" />
             <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
             <p>Dhaka, Bangladesh</p>
           </div>
 
-          <div className="p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+          <div className="p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
             <MdOutlineWatchLater className="w-10 h-10 text-yellow-400 mb-3" />
             <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
             <p>Sat - Thu: 9:00 AM - 6:00 PM</p>
           </div>
         </div>
       </div>
-      <div className=" bg-white p-10 rounded-2xl">
+      <div className=" bg-base-200 p-10 rounded-2xl">
         <h2 className=" text-warning text-2xl font-bold my-3">Contact Us</h2>
         <form onSubmit={handleContactForm} className=" space-y-4">
           <div>

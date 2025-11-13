@@ -192,7 +192,7 @@ const MyPayBils = () => {
     <div className=" bg-indigo-950">
       <div className=" w-11/12 mx-auto">
         <div className=" py-5">
-          <div className=" bg-white rounded-xl">
+          <div className="  bg-base-200 rounded-xl">
             <motion.h2
               variants={fadeIn("up", 0.1)}
               initial="hidden"
@@ -215,7 +215,7 @@ const MyPayBils = () => {
             {/* main table  */}
             <div className="overflow-x-auto w-full">
               <table className="table w-full text-sm md:text-base ">
-                <thead className="bg-gray-200 text-gray-800 uppercase text-sm">
+                <thead className="bg-base-100 text-gray-600 uppercase text-sm">
                   <tr>
                     <th>#</th>
                     <th>User Name</th>

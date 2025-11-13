@@ -92,7 +92,7 @@ const Home = () => {
   return (
     <div className=" bg-indigo-950">
       {/* banner  */}
-      <section className=" py-5 bg-gray-800 text-white">
+      <section className=" py-5  bg-base-200 text-gray-600">
         <div className=" text-center">
           <h1 className=" text-4xl font-bold text-warning min-h-4">
             <span>{text || "|"}</span>
@@ -117,20 +117,24 @@ const Home = () => {
           <Slider {...settings}>
             {bannerData.map((item, index) => {
               return (
-                <div key={index} className="flex card card-side  ">
+                <div
+                  key={index}
+                  className="relative card card-side overflow-hidden rounded-md shadow-md"
+                >
                   <figure>
                     <img
-                      className=" max-h-80  rounded-md"
+                      className="w-full h-80 object-cover"
                       src={item.img}
                       alt="Album"
                     />
                   </figure>
-                  <div className="card-body text-center text-white">
-                    <h2 className=" text-2xl font-bold  text-center text-warning">
+                  <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white p-4 transition-all duration-300 hover:bg-black/60">
+                    <h2 className="text-6xl font-bold text-warning drop-shadow-lg">
                       {item.name}
                     </h2>
-                    <p className=" font-thin ">{item.description}</p>
-                    <div className="card-actions justify-end"></div>
+                    <p className="font-thin mt-2 max-w-md">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               );
@@ -179,7 +183,7 @@ const Home = () => {
           </h2>
           <div className=" grid md:grid-cols-3 gap-3">
             {/* card  */}
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
@@ -190,7 +194,7 @@ const Home = () => {
                 and the electricity department save time and reduce errors.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
@@ -201,7 +205,7 @@ const Home = () => {
                 and the electricity department save time and reduce errors.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Gas Bill Management
               </h3>
@@ -212,7 +216,7 @@ const Home = () => {
                 efficiently.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Water Bill Tracking System
               </h3>
@@ -223,7 +227,7 @@ const Home = () => {
                 download receipts instantly.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Internet Bill Handling
               </h3>
@@ -234,7 +238,7 @@ const Home = () => {
                 hassle-free billing experience.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-white space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
               <h3 className=" font-bold text-xl text-warning">
                 Download Paid Bill Reports (PDF)
               </h3>
@@ -261,25 +265,25 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto">
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
               <MdEmail className="w-10 h-10 text-blue-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p>support@billmanager.com</p>
             </div>
 
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
               <IoCall className="w-10 h-10 text-green-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Call Us</h3>
               <p>+880 1234 567 890</p>
             </div>
 
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
               <FaMapMarkedAlt className="w-10 h-10 text-red-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
               <p>Dhaka, Bangladesh</p>
             </div>
 
-            <div className="p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-white">
+            <div className="p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
               <MdOutlineWatchLater className="w-10 h-10 text-yellow-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
               <p>Sat - Thu: 9:00 AM - 6:00 PM</p>
