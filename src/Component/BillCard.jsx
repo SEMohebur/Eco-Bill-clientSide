@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const BillCard = ({ bill }) => {
   return (
-    <div className="card bg-base-200 shadow  cursor-pointer hover:shadow-lg duration-200">
+    <div className="card bg-base-300 shadow  cursor-pointer hover:shadow-lg duration-200">
       <figure>
         <img
           src={bill.image}

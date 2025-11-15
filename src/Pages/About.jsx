@@ -27,6 +27,7 @@ const About = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.7 }}
+            className=" text-gray-600"
           >
             {" "}
             We make paying your utility bills simple, secure, and fast. Our
@@ -84,12 +85,14 @@ const About = () => {
           <div className="  grid grid-cols-1 md:grid-cols-4 gap-3">
             <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Fast & Easy Payments</h3>
-              <p>Pay your bills within seconds with a few simple clicks</p>
+              <p className=" text-gray-600">
+                Pay your bills within seconds with a few simple clicks
+              </p>
             </div>
 
             <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Secure Transactions</h3>
-              <p>
+              <p className=" text-gray-600">
                 Your data and payment details are protected with advanced
                 encryption.
               </p>
@@ -99,12 +102,16 @@ const About = () => {
               <h3 className=" text-warning font-bold">
                 User-Friendly Interface
               </h3>
-              <p>Simple, intuitive design that anyone can use easily.</p>
+              <p className=" text-gray-600">
+                Simple, intuitive design that anyone can use easily.
+              </p>
             </div>
 
             <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Track History</h3>
-              <p>View and download your past bill reports anytime.</p>
+              <p className=" text-gray-600">
+                View and download your past bill reports anytime.
+              </p>
             </div>
           </div>
         </div>
@@ -130,7 +137,7 @@ const About = () => {
               </div>
 
               <h5 className=" text-warning font-bold">Alisha</h5>
-              <p className=" ">Frontend Developer</p>
+              <p className=" text-gray-600">Frontend Developer</p>
             </div>
 
             <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -142,7 +149,7 @@ const About = () => {
               </div>
 
               <h5 className=" text-warning font-bold">Choyon</h5>
-              <p className="">Backend Developer</p>
+              <p className=" text-gray-600">Backend Developer</p>
             </div>
             <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">
@@ -154,7 +161,7 @@ const About = () => {
               </div>
 
               <h5 className="text-warning font-bold ">Jarifa</h5>
-              <p className="">UI/UX Designer</p>
+              <p className=" text-gray-600">UI/UX Designer</p>
             </div>
           </div>
         </motion.div>
@@ -163,8 +170,10 @@ const About = () => {
           <h3 className=" text-xl font-bold text-warning ">
             Have Any Questions?
           </h3>
-          <p>We’d love to hear from you. Get in touch with our team today.</p>
-          <Link to="/contact" className=" btn btn-warning">
+          <p className=" text-gray-600">
+            We’d love to hear from you. Get in touch with our team today.
+          </p>
+          <Link to="/contact" className=" btn btn-primary">
             Contact Us
           </Link>
         </div>
