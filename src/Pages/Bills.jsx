@@ -52,7 +52,7 @@ const Bills = () => {
   }
 
   return (
-    <div className=" bg-indigo-950">
+    <div className=" bg-base-200">
       {" "}
       <div className=" w-11/12 mx-auto py-5">
         <motion.h1
@@ -67,7 +67,7 @@ const Bills = () => {
 
         <div className=" flex justify-between mb-3">
           <div>
-            <span className=" font-bold text-white">Total Bills : </span>
+            <span className=" font-bold text-gray-600">Total Bills : </span>
             <span className=" text-warning "> {filterBill.length}</span>
           </div>
 

@@ -90,7 +90,7 @@ const Home = () => {
   }
 
   return (
-    <div className=" bg-indigo-950">
+    <div className=" bg-base-100">
       {/* banner  */}
       <section className=" py-5  bg-base-200 text-gray-600">
         <div className=" text-center">
@@ -129,7 +129,7 @@ const Home = () => {
                     />
                   </figure>
                   <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white p-4 transition-all duration-300 hover:bg-black/60">
-                    <h2 className="text-6xl font-bold text-warning drop-shadow-lg">
+                    <h2 className="text-6xl font-bold drop-shadow-lg">
                       {item.name}
                     </h2>
                     <p className="font-thin mt-2 max-w-md">
@@ -154,7 +154,7 @@ const Home = () => {
               return (
                 <div
                   key={index}
-                  className=" text-center rounded-md space-y-3 p-4 bg-amber-300 hover:bg-blue-800 text-white px-4 py-2  transition duration-300 cursor-pointer"
+                  className=" text-center rounded-md space-y-3 p-4 bg-base-200 shadow text-gray-600 hover:bg-base-300 px-4 py-2  transition duration-300 cursor-pointer"
                 >
                   <div className=" flex justify-center">
                     <p className=" text-3xl ">{item.icon}</p>
@@ -183,7 +183,7 @@ const Home = () => {
           </h2>
           <div className=" grid md:grid-cols-3 gap-3">
             {/* card  */}
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
@@ -194,7 +194,7 @@ const Home = () => {
                 and the electricity department save time and reduce errors.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Electricity Bill Management
               </h3>
@@ -205,7 +205,7 @@ const Home = () => {
                 and the electricity department save time and reduce errors.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Gas Bill Management
               </h3>
@@ -216,7 +216,7 @@ const Home = () => {
                 efficiently.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Water Bill Tracking System
               </h3>
@@ -227,7 +227,7 @@ const Home = () => {
                 download receipts instantly.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Internet Bill Handling
               </h3>
@@ -238,7 +238,7 @@ const Home = () => {
                 hassle-free billing experience.
               </p>
             </div>
-            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3">
+            <div className=" shadow rounded-xl p-5 text-center bg-base-200 space-y-3 cursor-pointer hover:shadow-lg duration-200">
               <h3 className=" font-bold text-xl text-warning">
                 Download Paid Bill Reports (PDF)
               </h3>
@@ -258,32 +258,32 @@ const Home = () => {
           </h2>
 
           <div className="max-w-6xl mx-auto text-center mb-12">
-            <p className=" text-white text-base md:text-lg ">
+            <p className=" text-base md:text-lg ">
               Get in touch with us for billing support, feedback, or general
               inquiries.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto">
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
+            <div className=" p-6 rounded-2xl shadow flex flex-col items-center text-center bg-base-200 cursor-pointer hover:shadow-lg duration-200">
               <MdEmail className="w-10 h-10 text-blue-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p>support@billmanager.com</p>
             </div>
 
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
+            <div className=" p-6 rounded-2xl shadow flex flex-col items-center text-center bg-base-200 cursor-pointer hover:shadow-lg duration-200">
               <IoCall className="w-10 h-10 text-green-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Call Us</h3>
               <p>+880 1234 567 890</p>
             </div>
 
-            <div className=" p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
+            <div className=" p-6 rounded-2xl shadow flex flex-col items-center text-center bg-base-200 cursor-pointer hover:shadow-lg duration-200">
               <FaMapMarkedAlt className="w-10 h-10 text-red-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
               <p>Dhaka, Bangladesh</p>
             </div>
 
-            <div className="p-6 rounded-2xl shadow-lg flex flex-col items-center text-center bg-base-200">
+            <div className="p-6 rounded-2xl shadow flex flex-col items-center text-center bg-base-200 cursor-pointer hover:shadow-lg duration-200">
               <MdOutlineWatchLater className="w-10 h-10 text-yellow-400 mb-3" />
               <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
               <p>Sat - Thu: 9:00 AM - 6:00 PM</p>

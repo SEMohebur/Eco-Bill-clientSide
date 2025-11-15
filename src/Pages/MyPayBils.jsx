@@ -189,10 +189,10 @@ const MyPayBils = () => {
   }
 
   return (
-    <div className=" bg-indigo-950">
+    <div className=" bg-base-200">
       <div className=" w-11/12 mx-auto">
         <div className=" py-5">
-          <div className="  bg-base-200 rounded-xl">
+          <div className="  bg-base-300 p-5 rounded-xl">
             <motion.h2
               variants={fadeIn("up", 0.1)}
               initial="hidden"
@@ -215,7 +215,7 @@ const MyPayBils = () => {
             {/* main table  */}
             <div className="overflow-x-auto w-full">
               <table className="table w-full text-sm md:text-base ">
-                <thead className="bg-base-100 text-gray-600 uppercase text-sm">
+                <thead className="bg-base-100  uppercase text-sm">
                   <tr>
                     <th>#</th>
                     <th>User Name</th>
@@ -233,12 +233,12 @@ const MyPayBils = () => {
                   {billHistory?.map((bill, index) => (
                     <tr
                       key={index}
-                      className="hover:bg-gray-100 transition-colors duration-200 text-gray-700"
+                      className="hover:bg-gray-100 text-gray-600 transition-colors duration-200"
                     >
                       <td className="font-medium">{index + 1}</td>
                       <td className="whitespace-nowrap">{bill.userName}</td>
                       <td className="whitespace-nowrap">{bill.email}</td>
-                      <td className="whitespace-nowrap text-green-600 font-semibold">
+                      <td className="whitespace-nowrap  font-semibold">
                         ৳{bill.amount}
                       </td>
                       <td className="min-w-[120px]">{bill.address}</td>
@@ -247,7 +247,7 @@ const MyPayBils = () => {
                       <td>
                         <button
                           onClick={() => handleUpdateModal(bill)}
-                          className="btn btn-xs btn-warning text-white hover:scale-105 transition-transform"
+                          className="btn btn-xs   hover:scale-105 transition-transform"
                         >
                           Update
                         </button>
@@ -255,7 +255,7 @@ const MyPayBils = () => {
                       <td>
                         <button
                           onClick={() => handleDelete(bill)}
-                          className="btn btn-xs btn-error text-white hover:scale-105 transition-transform"
+                          className="btn btn-xs hover:scale-105 transition-transform"
                         >
                           Delete
                         </button>
@@ -270,11 +270,11 @@ const MyPayBils = () => {
               <div className=" flex gap-5">
                 <p className=" text-gray-700">
                   Total Bill Paid:{" "}
-                  <span className=" text-green-500">{totalBillLength}</span>
+                  <span className=" font-bold">{totalBillLength}</span>
                 </p>
                 <p className=" text-gray-700">
-                  Total Amount : ৳
-                  <span className=" text-green-500">{totalAmount}</span>
+                  Total Amount : ৳{" "}
+                  <span className=" font-bold">{totalAmount}</span>
                 </p>
               </div>
               <div>

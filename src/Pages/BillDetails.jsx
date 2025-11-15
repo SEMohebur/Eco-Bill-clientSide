@@ -112,7 +112,7 @@ const BillDetails = () => {
   }
 
   return (
-    <div className=" bg-indigo-950">
+    <div className="">
       <div className="w-11/12 mx-auto py-6">
         <h2 className=" text-center py-5 text-3xl text-warning font-bold">
           Bill Details
@@ -129,18 +129,18 @@ const BillDetails = () => {
               <span>{title}</span>
             </h2>
             <p className=" flex items-center gap-2">
-              <IoIosWater className=" text-blue-400" />
+              <IoIosWater />
 
               <span className=" font-semibold text-gray-700">{category}</span>
             </p>
             <p className=" flex items-center gap-2">
-              <FaLocationDot className=" text-blue-600" />
+              <FaLocationDot />
 
               <span className=" text-gray-700">{location}</span>
             </p>
 
             <p className=" flex items-center gap-2">
-              <span className=" text-red-400">$</span>
+              <span>$</span>
 
               <span className=" text-gray-700">{amount}</span>
             </p>

@@ -48,7 +48,7 @@ const Navbar = () => {
           </Link>
         </div>
         {/* right links  */}
-        <ul className=" flex flex-col md:flex-row items-center gap-5 font-bold text-warning">
+        <ul className=" flex flex-col md:flex-row items-center gap-5 font-bold ">
           <li className=" hover:text-indigo-700 hover:scale-125 transition-transform duration-300">
             <NavLink to="/">Home</NavLink>
           </li>
@@ -119,28 +119,19 @@ const Navbar = () => {
                     </ul>
                   </div>
                 </li>
-                <button
-                  className=" btn bg-red-600 hover:bg-red-700 text-white"
-                  onClick={handleLogOut}
-                >
+                <button className=" btn" onClick={handleLogOut}>
                   Log Out
                 </button>
               </ul>
             ) : (
               <ul className=" flex flex-col md:flex-row items-center gap-5">
                 <li>
-                  <NavLink
-                    to="/login"
-                    className="btn bg-blue-600 hover:bg-blue-700 text-white"
-                  >
+                  <NavLink to="/login" className="btn ">
                     Login
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/register"
-                    className="btn bg-green-600 hover:bg-green-700 text-white"
-                  >
+                  <NavLink to="/register" className="btn ">
                     Register
                   </NavLink>
                 </li>

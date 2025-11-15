@@ -6,7 +6,7 @@ const Profile = () => {
   const { userInfo } = use(AuthContext);
   console.log(userInfo);
   return (
-    <div className=" bg-indigo-950 flex justify-center items-center ">
+    <div className=" flex justify-center items-center ">
       <div className=" py-8 bg-base-200 p-15 rounded-2xl m-20 space-y-4">
         <h2 className=" text-center text-3xl font-bold text-warning">
           My Profile

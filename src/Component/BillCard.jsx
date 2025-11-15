@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const BillCard = ({ bill }) => {
   return (
-    <div className="card bg-base-100  shadow-sm">
+    <div className="card bg-base-200 shadow  cursor-pointer hover:shadow-lg duration-200">
       <figure>
         <img
           src={bill.image}
@@ -15,16 +15,16 @@ const BillCard = ({ bill }) => {
       <div className="card-body">
         <h2 className="card-title text-warning">{bill.title}</h2>
         <p>
-          <span className=" bg-red-500 font-bold p-1 rounded-full text-white">
+          <span className=" bg-base-300 font-bold p-1 rounded-full text-gray-600">
             {bill.category}
           </span>
         </p>
 
-        <div className="  text-sm font-bold flex items-center gap-1">
-          <FaLocationDot className=" text-indigo-400 " />
-          <p className=" text-indigo-400">{bill.location}</p>
+        <div className="  text-sm font-bold flex items-center gap-1 text-gray-600">
+          <FaLocationDot />
+          <p>{bill.location}</p>
         </div>
-        <strong className=" text-red-400">$ {bill.amount}</strong>
+        <strong className=" text-gray-600">$ {bill.amount}</strong>
         <div className="card-actions justify-end">
           <Link to={`/billDetails/${bill._id}`} className="btn btn-primary">
             See Details

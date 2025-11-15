@@ -10,7 +10,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className=" bg-indigo-950 text-white">
+    <div className=" bg-base-200">
       <div className=" w-11/12 mx-auto">
         <div className=" text-center p-5">
           <motion.h2
@@ -59,14 +59,14 @@ const About = () => {
           </div>
         </div>
         <div className=" py-5 grid grid-cols-2 gap-5 text-gray-400">
-          <div className=" bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-5">
+          <div className=" bg-base-300 hover:shadow-lg duration-200 cursor-pointer rounded-2xl text-center flex flex-col items-center justify-center p-5">
             <h3 className=" text-warning font-bold">Our Mission</h3>
             <p className=" text-gray-600">
               To simplify the way people manage and pay their utility bills
               through secure and modern technology.
             </p>
           </div>
-          <div className=" bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-5">
+          <div className=" bg-base-300 hover:shadow-lg duration-200 cursor-pointer rounded-2xl text-center flex flex-col items-center justify-center p-5">
             <h3 className="text-warning font-bold"> Our Vision</h3>
             <p className=" text-gray-600">
               {" "}
@@ -82,12 +82,12 @@ const About = () => {
             Why Choose Us
           </h3>
           <div className="  grid grid-cols-1 md:grid-cols-4 gap-3">
-            <div className=" bg-indigo-950 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
+            <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Fast & Easy Payments</h3>
               <p>Pay your bills within seconds with a few simple clicks</p>
             </div>
 
-            <div className=" bg-indigo-950 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
+            <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Secure Transactions</h3>
               <p>
                 Your data and payment details are protected with advanced
@@ -95,14 +95,14 @@ const About = () => {
               </p>
             </div>
 
-            <div className=" bg-indigo-950 p-3 rounded-2xl text-center flex flex-col items-center justify-center">
+            <div className="bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3 rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">
                 User-Friendly Interface
               </h3>
               <p>Simple, intuitive design that anyone can use easily.</p>
             </div>
 
-            <div className=" bg-indigo-950 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
+            <div className=" bg-base-300 cursor-pointer hover:shadow-lg duration-200 p-3  rounded-2xl text-center flex flex-col items-center justify-center">
               <h3 className=" text-warning font-bold">Track History</h3>
               <p>View and download your past bill reports anytime.</p>
             </div>
@@ -130,7 +130,7 @@ const About = () => {
               </div>
 
               <h5 className=" text-warning font-bold">Alisha</h5>
-              <p className=" text-indigo-900">Frontend Developer</p>
+              <p className=" ">Frontend Developer</p>
             </div>
 
             <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -142,7 +142,7 @@ const About = () => {
               </div>
 
               <h5 className=" text-warning font-bold">Choyon</h5>
-              <p className=" text-indigo-900">Backend Developer</p>
+              <p className="">Backend Developer</p>
             </div>
             <div className="bg-base-200 rounded-2xl text-center flex flex-col items-center justify-center p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4">
@@ -154,7 +154,7 @@ const About = () => {
               </div>
 
               <h5 className="text-warning font-bold ">Jarifa</h5>
-              <p className=" text-indigo-900">UI/UX Designer</p>
+              <p className="">UI/UX Designer</p>
             </div>
           </div>
         </motion.div>
